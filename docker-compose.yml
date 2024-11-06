@@ -6,11 +6,12 @@ services:
     container_name: postgres-db
     volumes:
       - ./docker/dataPostgresql:/var/lib/postgresql/data
+      - ./docker/dataPostgresql/init.sql:/docker-entrypoint-initdb.d/init.sql:ro
     environment:
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
       - POSTGRES_DB=postgres
     ports:
-      - "54321:5432" 
+      - "54321:5432"
     
 
