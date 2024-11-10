@@ -1,0 +1,34 @@
+version: "3.8"  # Versão do Docker Compose
+
+services:
+  db:
+    image: postgres:14
+    container_name: postgres-db2
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=postgres
+    volumes:
+      - ./dataPostgresql:/var/lib/postgresql/data  # Mapeamento dos dados do PostgreSQL
+      - ./dataPostgresql/init.sql:/docker-entrypoint-initdb.d/init.sql:ro  # Arquivo de inicialização do banco de dados
+    ports:
+      - "54321:5432"  # Mapeamento da porta do PostgreSQL
+    networks:
+      - meu-banco
+
+  pgadmin:
+    image: dpage/pgadmin4
+    container_name: pgadmin2
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=admin@admin.com
+      - PGADMIN_DEFAULT_PASSWORD=admin
+    volumes:
+      - ./dataPgadmin:/var/lib/pgadmin  # Mapeamento da pasta local para persistência de dados do PgAdmin
+    ports:
+      - "5050:80"  # Mapeamento da porta do PgAdmin
+    networks:
+      - meu-banco
+
+networks:
+  meu-banco:
+    driver: bridge

@@ -2,6 +2,13 @@
 
 
 Passos para Rodar:
+
+Acesse o Terminal e navegue até a pasta docker.
+
 Execute o comando docker-compose up -d para levantar os containers.
-Acesse o pgAdmin em http://localhost:5050 e use as credenciais definidas no arquivo (admin@admin.com / admin).
-Configure o servidor PostgreSQL dentro do pgAdmin se necessário, usando postgres-db como o nome do host, 5432 como a porta e as credenciais do PostgreSQL configuradas (postgres / postgres).
+
+Abra o navegador e acesse o pgAdmin em http://localhost:5050, use as credenciais definidas no arquivo Usuário:admin@admin.com Senha:admin
+
+Configure o servidor PostgreSQL dentro do pgAdmin, Host name/address:postgres-db, porta:5432 e insira as credenciais do PostgreSQL configuradas Username:postgres e Password:postgres
+
+
