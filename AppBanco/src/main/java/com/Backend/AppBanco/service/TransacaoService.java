@@ -1,10 +1,11 @@
 package com.Backend.AppBanco.service;
 
-import com.Backend.AppBanco.model.Conta;
-import com.Backend.AppBanco.model.Transacao;
 import com.Backend.AppBanco.repository.ContaRepository;
 import com.Backend.AppBanco.repository.TransacaoRepository;
 import com.Backend.AppBanco.dto.TransacaoDTO;
+import com.Backend.AppBanco.entity.ContaEntity;
+import com.Backend.AppBanco.entity.TransacaoEntity;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -21,8 +22,8 @@ public class TransacaoService {
     @Autowired
     private TransacaoRepository transacaoRepository;
 
-    public Transacao realizarDeposito(int idConta, TransacaoDTO transacaoDTO) {
-        Conta conta = contaRepository.findById(idConta)
+    public TransacaoEntity realizarDeposito(int idConta, TransacaoDTO transacaoDTO) {
+        ContaEntity conta = contaRepository.findById(idConta)
             .orElseThrow(() -> new RuntimeException("Conta não encontrada"));
 
         if (transacaoDTO.getValor().compareTo(BigDecimal.ZERO) <= 0) {
@@ -32,7 +33,7 @@ public class TransacaoService {
         conta.depositar(transacaoDTO.getValor());
         contaRepository.save(conta);
 
-        Transacao transacao = new Transacao();
+        TransacaoEntity transacao = new TransacaoEntity();
         transacao.setConta(conta);
         transacao.setTipo("deposito");
         transacao.setValor(transacaoDTO.getValor());
@@ -41,8 +42,8 @@ public class TransacaoService {
         return transacaoRepository.save(transacao);
     }
 
-    public Transacao realizarSaque(int idConta, TransacaoDTO transacaoDTO) {
-        Conta conta = contaRepository.findById(idConta)
+    public TransacaoEntity realizarSaque(int idConta, TransacaoDTO transacaoDTO) {
+        ContaEntity conta = contaRepository.findById(idConta)
             .orElseThrow(() -> new RuntimeException("Conta não encontrada"));
 
         if (transacaoDTO.getValor().compareTo(BigDecimal.ZERO) <= 0) {
@@ -56,7 +57,7 @@ public class TransacaoService {
         conta.sacar(transacaoDTO.getValor());
         contaRepository.save(conta);
 
-        Transacao transacao = new Transacao();
+        TransacaoEntity transacao = new TransacaoEntity();
         transacao.setConta(conta);
         transacao.setTipo("saque");
         transacao.setValor(transacaoDTO.getValor());
@@ -65,9 +66,11 @@ public class TransacaoService {
         return transacaoRepository.save(transacao);
     }
 
-    public List<Transacao> consultarExtrato(int idConta) {
-        Conta conta = contaRepository.findById(idConta)
+    public List<TransacaoEntity> consultarExtrato(int idConta) {
+        ContaEntity conta = contaRepository.findById(idConta)
             .orElseThrow(() -> new RuntimeException("Conta não encontrada"));
         return transacaoRepository.findByConta(conta);
     }
+    
+
 }

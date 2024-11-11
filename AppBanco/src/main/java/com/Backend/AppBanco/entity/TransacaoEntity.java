@@ -1,4 +1,4 @@
-package com.Backend.AppBanco.model;
+package com.Backend.AppBanco.entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
@@ -14,7 +14,7 @@ import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "Transacao")
-public class Transacao {
+public class TransacaoEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -23,7 +23,7 @@ public class Transacao {
 
     @ManyToOne
     @JoinColumn(name = "idConta", referencedColumnName = "idConta", nullable = false)
-    private Conta conta;
+    private ContaEntity conta;
 
     @Column(name = "tipo", nullable = false)
     private String tipo;
@@ -44,11 +44,11 @@ public class Transacao {
     }
 
     // Getter e Setter para conta
-    public Conta getConta() {
+    public ContaEntity getConta() {
         return conta;
     }
 
-    public void setConta(Conta conta) {
+    public void setConta(ContaEntity conta) {
         this.conta = conta;
     }
 
