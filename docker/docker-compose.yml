@@ -1,4 +1,3 @@
-version: "3.8"  # Versão do Docker Compose
 
 services:
   db:
@@ -9,10 +8,10 @@ services:
       - POSTGRES_PASSWORD=postgres
       - POSTGRES_DB=postgres
     volumes:
-      - ./dataPostgresql:/var/lib/postgresql/data  # Mapeamento dos dados do PostgreSQL
-      - ./init.sql:/docker-entrypoint-initdb.d/init.sql  # Arquivo de inicialização do banco de dados
+      - ./dataPostgresql:/var/lib/postgresql/data
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
     ports:
-      - "54321:5432"  # Mapeamento da porta do PostgreSQL
+      - "54321:5432"
     networks:
       - meu-banco
 
@@ -23,9 +22,25 @@ services:
       - PGADMIN_DEFAULT_EMAIL=admin@admin.com
       - PGADMIN_DEFAULT_PASSWORD=admin
     volumes:
-      - ./dataPgadmin:/var/lib/pgadmin  # Mapeamento da pasta local para persistência de dados do PgAdmin
+      - ./dataPgadmin:/var/lib/pgadmin
     ports:
-      - "5050:80"  # Mapeamento da porta do PgAdmin
+      - "5050:80"
+    networks:
+      - meu-banco
+
+  app-banco:
+    build:
+      context: ../AppBanco
+      dockerfile: Dockerfile
+    container_name: app-banco
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://db:5432/postgres
+      - SPRING_DATASOURCE_USERNAME=postgres
+      - SPRING_DATASOURCE_PASSWORD=postgres
+    ports:
+      - "8080:8080"
+    depends_on:
+      - db
     networks:
       - meu-banco
 

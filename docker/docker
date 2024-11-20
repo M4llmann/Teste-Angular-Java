@@ -1,0 +1,37 @@
+Attaching to app-banco, pgadmin, postgres-db
+postgres-db  | 
+postgres-db  | PostgreSQL Database directory appears to contain a database; Skipping initialization
+postgres-db  | 
+app-banco    | 
+app-banco    |   .   ____          _            __ _ _
+app-banco    |  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+app-banco    | ( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+app-banco    |  \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+app-banco    |   '  |____| .__|_| |_|_| |_\__, | / / / /
+app-banco    |  =========|_|==============|___/=/_/_/_/
+app-banco    | 
+app-banco    |  :: Spring Boot ::                (v3.3.5)
+app-banco    | 
+app-banco    | 2024-11-19T10:36:03.543Z  INFO 1 --- [AppBanco] [           main] c.Backend.AppBanco.AppBancoApplication   : Starting AppBancoApplication v0.0.1-SNAPSHOT using Java 21 with PID 1 (/app/app.jar started by root in /app)
+app-banco    | 2024-11-19T10:36:03.551Z  INFO 1 --- [AppBanco] [           main] c.Backend.AppBanco.AppBancoApplication   : No active profile set, falling back to 1 default profile: "default"
+app-banco    | 2024-11-19T10:36:07.006Z  INFO 1 --- [AppBanco] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+app-banco    | 2024-11-19T10:36:07.187Z  INFO 1 --- [AppBanco] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 151 ms. Found 2 JPA repository interfaces.
+app-banco    | 2024-11-19T10:36:09.764Z  INFO 1 --- [AppBanco] [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+app-banco    | 2024-11-19T10:36:09.814Z  INFO 1 --- [AppBanco] [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+app-banco    | 2024-11-19T10:36:09.815Z  INFO 1 --- [AppBanco] [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.31]
+app-banco    | 2024-11-19T10:36:09.927Z  INFO 1 --- [AppBanco] [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+app-banco    | 2024-11-19T10:36:09.932Z  INFO 1 --- [AppBanco] [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 6195 ms
+app-banco    | 2024-11-19T10:36:10.891Z  INFO 1 --- [AppBanco] [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+app-banco    | 2024-11-19T10:36:11.134Z  INFO 1 --- [AppBanco] [           main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.3.Final
+app-banco    | 2024-11-19T10:36:11.286Z  INFO 1 --- [AppBanco] [           main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+app-banco    | 2024-11-19T10:36:12.307Z  INFO 1 --- [AppBanco] [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+app-banco    | 2024-11-19T10:36:12.397Z  INFO 1 --- [AppBanco] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+app-banco    | 2024-11-19T10:36:13.729Z  INFO 1 --- [AppBanco] [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@58ebee9
+app-banco    | 2024-11-19T10:36:13.733Z  INFO 1 --- [AppBanco] [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+app-banco    | 2024-11-19T10:36:14.093Z  WARN 1 --- [AppBanco] [           main] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+app-banco    | 2024-11-19T10:36:16.396Z  INFO 1 --- [AppBanco] [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+app-banco    | 2024-11-19T10:36:17.163Z  INFO 1 --- [AppBanco] [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+app-banco    | 2024-11-19T10:36:18.449Z  WARN 1 --- [AppBanco] [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+app-banco    | 2024-11-19T10:36:20.419Z  INFO 1 --- [AppBanco] [           main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 2 endpoints beneath base path '/actuator'
+app-banco    | 2024-11-19T10:36:20.657Z  INFO 1 --- [AppBanco] [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+app-banco    | 2024-11-19T10:36:20.711Z  INFO 1 --- [AppBanco] [           main] c.Backend.AppBanco.AppBancoApplication   : Started AppBancoApplication in 18.835 seconds (process running for 21.456)

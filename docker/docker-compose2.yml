@@ -1,0 +1,56 @@
+services:
+  appbanco:
+    build:
+      context: ../AppBanco
+      dockerfile: Dockerfile
+    container_name: appbanco
+    ports:
+      - "8080:8080"
+    networks:
+      - meu-banco
+    depends_on:
+      - db
+
+  frontend:
+    build:
+      context: ../frontend
+      dockerfile: Dockerfile
+    container_name: frontend
+    ports:
+      - "4200:80"
+    networks:
+      - meu-banco
+    depends_on:
+      - appbanco
+  
+  db:
+    image: postgres:14
+    container_name: postgres-db
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=postgres
+    volumes:
+      - ./dataPostgresql:/var/lib/postgresql/data
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+    ports:
+      - "54321:5432"
+    networks:
+      - meu-banco
+
+  pgadmin:
+    image: dpage/pgadmin4
+    container_name: pgadmin
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=admin@admin.com
+      - PGADMIN_DEFAULT_PASSWORD=admin
+    volumes:
+      - ./dataPgadmin:/var/lib/pgadmin
+    ports:
+      - "5050:80"
+    networks:
+      - meu-banco
+ 
+networks:
+  meu-banco:
+    driver: bridge

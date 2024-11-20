@@ -1,0 +1,135 @@
+/* Estilos globais */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f7fb;
+    margin: 0;
+    padding: 0;
+    color: #333;
+    display: flex;
+    justify-content: center; /* Centraliza a página */
+    align-items: center; /* Alinha verticalmente */
+    min-height: 100vh; /* Preenche a altura da tela */
+  }
+  
+  /* Contêiner principal */
+  div {
+    max-width: 900px;
+    width: 100%;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centraliza os itens dentro da div */
+  }
+  
+  /* Títulos */
+  h2 {
+    font-size: 24px;
+    color: #2c3e50;
+    margin-bottom: 10px;
+  }
+  
+  h3 {
+    font-size: 20px;
+    color: #34495e;
+    margin-bottom: 15px;
+  }
+  
+  /* Estilo do parágrafo de saldo */
+  p {
+    font-size: 18px;
+    color: #2ecc71;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  /* Estilo do botão de exibição do extrato */
+  button {
+    background-color: #3498db;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-bottom: 20px;
+  }
+  
+  button:hover {
+    background-color: #2980b9;
+  }
+  
+  button:focus {
+    outline: none;
+  }
+  
+  /* Estilo dos formulários de entrada */
+  input[type="text"], input[type="number"] {
+    width: 50%; /* Campo de valor com 50% da largura */
+    padding: 10px;
+    font-size: 16px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+  }
+  
+  input[type="text"]:focus, input[type="number"]:focus {
+    border-color: #3498db;
+    outline: none;
+  }
+  
+  /* Estilo para exibir o extrato */
+  ul {
+    list-style-type: none;
+    padding-left: 0;
+  }
+  
+  li {
+    padding: 8px 0;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  li:last-child {
+    border-bottom: none;
+  }
+  
+  p {
+    font-size: 16px;
+    color: #e74c3c;
+  }
+  
+  /* Mensagens sem extrato */
+  ng-template {
+    color: #7f8c8d;
+    font-size: 16px;
+    font-style: italic;
+  }
+  
+  /* Responsividade para telas menores */
+  @media (max-width: 768px) {
+    div {
+      padding: 15px;
+    }
+  
+    h2, h3 {
+      text-align: center;
+    }
+  
+    button, input {
+      width: 100%;
+      margin-top: 10px;
+    }
+  
+    .container-buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+  
+    .container-buttons button {
+      width: 100%;
+    }
+  }
+  

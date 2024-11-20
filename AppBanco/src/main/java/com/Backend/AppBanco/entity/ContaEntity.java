@@ -31,6 +31,10 @@ public class ContaEntity {
     @Column(name = "dataCriacao", nullable = false)
     private LocalDateTime dataCriacao;
 
+    public ContaEntity(){
+        
+    }
+
     // Getters e Setters
 
     public Integer getIdConta() {
@@ -73,13 +77,5 @@ public class ContaEntity {
         this.dataCriacao = dataCriacao;
     }
 
-    // Métodos de depósito e saque
-
-    public void depositar(BigDecimal valor) {
-        this.saldo = this.saldo.add(valor);
-    }
-
-    public void sacar(BigDecimal valor) {
-        this.saldo = this.saldo.subtract(valor);
-    }
+    
 }

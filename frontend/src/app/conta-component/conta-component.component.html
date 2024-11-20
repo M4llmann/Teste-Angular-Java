@@ -1,0 +1,46 @@
+<div>
+  <h2>Detalhes da Conta</h2>
+  
+  <!-- Exibe o saldo apenas se a conta estiver criada -->
+  <p *ngIf="idConta">Saldo: {{ saldo | currency:'BRL' }}</p>
+  
+  <h3>Extrato</h3>
+  
+  <!-- Botão para mostrar/ocultar o extrato -->
+  <button *ngIf="idConta" (click)="mostrarExtrato = !mostrarExtrato">
+    {{ mostrarExtrato ? 'Ocultar Extrato' : 'Mostrar Extrato' }}
+  </button>
+  
+  <!-- Exibição do extrato -->
+  <div *ngIf="mostrarExtrato">
+    <ul *ngIf="extrato.length > 0; else noExtrato">
+      <li *ngFor="let item of extrato">
+        {{ item.data | date:'dd/MM/yyyy' }} - {{ item.tipo }}: {{ item.valor | currency:'BRL' }}
+      </li>
+    </ul>
+    <ng-template #noExtrato>
+      <p>Sem movimentações no extrato.</p>
+    </ng-template>
+  </div>
+  
+  <h3>Operações</h3>
+  
+  <!-- Formulário para criar uma conta -->
+  <div *ngIf="!idConta">
+    <label for="nomeTitular">Nome do Titular:</label>
+    <input type="text" id="nomeTitular" [(ngModel)]="nomeTitular" />
+
+    
+    
+    <button (click)="criarConta()">Criar Conta</button>
+  </div>
+
+  <!-- Operações de depósito e saque -->
+  <div *ngIf="idConta">
+    <label for="valor">Valor:</label>
+    <input type="number" id="valor" [(ngModel)]="valor" />
+
+    <button (click)="realizarDeposito()">Depositar</button>
+    <button (click)="realizarSaque()">Sacar</button>
+  </div>
+</div>

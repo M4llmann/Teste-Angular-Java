@@ -1,16 +1,16 @@
 package com.Backend.AppBanco.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
-import jakarta.persistence.Id;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Column;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.JoinColumn;
-
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
 
 @Entity
 @Table(name = "Transacao")
@@ -33,6 +33,17 @@ public class TransacaoEntity {
 
     @Column(name = "dataTransacao", nullable = false)
     private LocalDateTime dataTransacao;
+
+    public TransacaoEntity(){
+        
+    }
+
+    public TransacaoEntity(String tipo, BigDecimal valor, ContaEntity conta) {
+        this.tipo = tipo;
+        this.valor = valor;
+        this.conta = conta;
+        this.dataTransacao = LocalDateTime.now(); // Define a data atual para dataTransacao
+    }
 
     // Getter e Setter para idTransacao
     public Integer getIdTransacao() {

@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-AppBancoApplication<AppBanco>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.Backend.AppBanco.AppBancoApplication",
+            "projectName": "AppBanco",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}
